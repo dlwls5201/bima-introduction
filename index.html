@@ -151,6 +151,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    container-type: inline-size; /* 카드 높이 계산(cqw)의 기준 */
   }
   .card {
     background: var(--surface);
@@ -173,8 +174,15 @@
   .igwrap.loaded::before { display: none; }
   /* embed.js 처리 전의 빈 흰색 박스(blockquote)는 숨김 */
   .igwrap blockquote.instagram-media { visibility: hidden; }
-  /* 임베드 iframe은 내용이 로딩된 뒤 페이드인 */
-  .igwrap iframe { position: relative; z-index: 1; opacity: 0; transition: opacity .35s; }
+  /* 임베드 iframe은 내용이 로딩된 뒤 페이드인.
+     인스타가 강제하는 min-width(326px)를 풀어 좁은 화면에서도 카드 안에 맞춤 */
+  .igwrap iframe {
+    position: relative; z-index: 1;
+    opacity: 0; transition: opacity .35s;
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
   .igwrap.loaded iframe { opacity: 1; }
   .card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,.16); }
   .card .thumb {
@@ -448,9 +456,13 @@ function appendCard(post) {
   const card = buildCard(post);
   col.appendChild(card);
   if (post.type !== "youtube") {
-    const w = col.clientWidth;
-    card.querySelector(".igwrap").style.height =
-      Math.round(w * (post.ratio || 1) + IG_CHROME) + "px";
+    // cqw(열 너비의 1%) 기반이라 어떤 화면 폭에서 로딩돼도 높이가 항상 정확함
+    const wrap = card.querySelector(".igwrap");
+    if (CSS.supports("height", "calc(100cqw + 1px)")) {
+      wrap.style.height = "calc(" + (post.ratio || 1) * 100 + "cqw + " + IG_CHROME + "px)";
+    } else {
+      wrap.style.height = Math.round(col.clientWidth * (post.ratio || 1) + IG_CHROME) + "px";
+    }
   }
 }
 
@@ -476,11 +488,16 @@ function render(filter) {
   renderMore();
 }
 
-// 창 크기가 바뀌면 열 수/카드 높이를 다시 계산 (보고 있던 개수는 유지)
+// 창 "가로폭"이 바뀔 때만 열 수/카드 높이를 다시 계산 (보고 있던 개수는 유지)
+// 주의: 모바일에서는 스크롤 중 주소창이 접히며 세로 resize가 계속 발생하므로
+// 가로폭이 그대로면 절대 다시 그리지 않는다 (스크롤 멈춤/임베드 재로딩 버그 방지)
 let resizeTimer;
+let lastRenderWidth = window.innerWidth;
 window.addEventListener("resize", () => {
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(() => {
+    if (window.innerWidth === lastRenderWidth) return;
+    lastRenderWidth = window.innerWidth;
     const target = shownCount;
     setupColumns();
     shownCount = 0;
