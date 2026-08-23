@@ -496,6 +496,8 @@ let lastRenderWidth = window.innerWidth;
 window.addEventListener("resize", () => {
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(() => {
+    // 전체화면 재생 중에는 재렌더 금지 — 플레이어가 삭제되며 전체화면이 풀려버림
+    if (document.fullscreenElement || document.webkitFullscreenElement) return;
     if (window.innerWidth === lastRenderWidth) return;
     lastRenderWidth = window.innerWidth;
     const target = shownCount;
