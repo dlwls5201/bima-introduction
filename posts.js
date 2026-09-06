@@ -1,6 +1,36 @@
 // update_posts.py 가 생성한 파일 — 직접 수정하지 말 것
-// 마지막 갱신: 2026-09-06 07:36 KST
+// 마지막 갱신: 2026-09-07 07:38 KST
 const POSTS = [
+ {
+  "type": "youtube",
+  "id": "UfUeBl7dfjk",
+  "title": "[광운대학교 비마응원단 X 서울과학기술대학교 응원단 스타티스] 수원 스타필드 합동공연 - 그대에게",
+  "date": "2026-09-06"
+ },
+ {
+  "type": "youtube",
+  "id": "iS-7lZ-Oows",
+  "title": "수원 스타필드 공연 - 보라빛 향기",
+  "date": "2026-09-06"
+ },
+ {
+  "type": "youtube",
+  "id": "KI2WafHgZbI",
+  "title": "수원 스타필드 공연 - 질풍가도",
+  "date": "2026-09-06"
+ },
+ {
+  "type": "youtube",
+  "id": "CU-n2qVgU3o",
+  "title": "수원 스타필드 공연 - Run",
+  "date": "2026-09-06"
+ },
+ {
+  "type": "youtube",
+  "id": "F3HewSfso5Q",
+  "title": "수원 스타필드 공연 - The Avengers",
+  "date": "2026-09-06"
+ },
  {
   "type": "instagram",
   "url": "https://www.instagram.com/p/DbLN5I6k49B/",
