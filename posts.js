@@ -1,5 +1,5 @@
 // update_posts.py 가 생성한 파일 — 직접 수정하지 말 것
-// 마지막 갱신: 2026-09-09 08:07 KST
+// 마지막 갱신: 2026-09-10 07:52 KST
 const POSTS = [
  {
   "type": "youtube",
