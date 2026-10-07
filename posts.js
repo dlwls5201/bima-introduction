@@ -1,6 +1,24 @@
 // update_posts.py 가 생성한 파일 — 직접 수정하지 말 것
-// 마지막 갱신: 2026-10-06 10:38 KST
+// 마지막 갱신: 2026-10-07 09:19 KST
 const POSTS = [
+ {
+  "type": "youtube",
+  "id": "37WJyPDXvWs",
+  "title": "2026 OBS 코리아컵 & 코리아스프린트 공연 - The Avengers",
+  "date": "2026-10-05"
+ },
+ {
+  "type": "youtube",
+  "id": "SPp6Tlh2360",
+  "title": "2026 OBS 코리아컵 & 코리아스프린트 공연 - Run",
+  "date": "2026-10-05"
+ },
+ {
+  "type": "youtube",
+  "id": "av2cgh9NwqI",
+  "title": "2026 OBS 코리아컵 & 코리아스프린트 공연 - 보라빛 향",
+  "date": "2026-10-05"
+ },
  {
   "type": "youtube",
   "id": "UfUeBl7dfjk",
