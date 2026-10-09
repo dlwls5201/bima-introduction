@@ -1,5 +1,5 @@
 // update_posts.py 가 생성한 파일 — 직접 수정하지 말 것
-// 마지막 갱신: 2026-10-08 09:40 KST
+// 마지막 갱신: 2026-10-09 09:56 KST
 const POSTS = [
  {
   "type": "youtube",
@@ -16,7 +16,7 @@ const POSTS = [
  {
   "type": "youtube",
   "id": "av2cgh9NwqI",
-  "title": "2026 OBS 코리아컵 & 코리아스프린트 공연 - 보라빛 향",
+  "title": "2026 OBS 코리아컵 & 코리아스프린트 공연 - 보라빛 향기",
   "date": "2026-10-05"
  },
  {
