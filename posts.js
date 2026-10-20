@@ -1,6 +1,24 @@
 // update_posts.py 가 생성한 파일 — 직접 수정하지 말 것
-// 마지막 갱신: 2026-10-19 07:42 KST
+// 마지막 갱신: 2026-10-20 09:04 KST
 const POSTS = [
+ {
+  "type": "youtube",
+  "id": "jE5LYMrNQ8U",
+  "title": "2026 월계1동 한마음 큰잔치 & 주민총회 공연 - Run",
+  "date": "2026-10-19"
+ },
+ {
+  "type": "youtube",
+  "id": "9W76yLZO_ns",
+  "title": "2026 월계1동 한마음 큰잔치 & 주민총회 공연 - The Avengers",
+  "date": "2026-10-19"
+ },
+ {
+  "type": "youtube",
+  "id": "uZdfKWWw-2A",
+  "title": "2026 월계1동 한마음 큰잔치 & 주민총회 공연 - 보라빛 향기",
+  "date": "2026-10-19"
+ },
  {
   "type": "youtube",
   "id": "37WJyPDXvWs",
